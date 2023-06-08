@@ -10,7 +10,7 @@ export default class TMBCalculator {
       6.25 * personData.heightInCm -
       5 * personData.age +
       this.sexAdder[personData.sex];
-    return tmb;
+    return Math.round(tmb);
   }
 }
 

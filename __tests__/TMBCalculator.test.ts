@@ -10,4 +10,14 @@ describe('TMBCalculator', function () {
     });
     expect(result).toBe(2055);
   });
+
+  it('Calculates the TMB for a 71kg woman', function () {
+    const result = TMBCalculator.calculate({
+      age: 31,
+      sex: 'female',
+      heightInCm: 158,
+      weightInKg: 71,
+    });
+    expect(result).toBe(1382);
+  });
 });
