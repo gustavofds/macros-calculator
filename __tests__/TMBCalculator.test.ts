@@ -1,4 +1,4 @@
-import TMBCalculator, { activityLevel } from '../app/entities/TMBCalculator';
+import TMBCalculator, { ActivityLevel } from '../app/entities/TMBCalculator';
 import Person from '../app/entities/Person';
 
 describe('TMBCalculator', function () {
@@ -9,7 +9,7 @@ describe('TMBCalculator', function () {
   });
 
   it('Calculates the Total Maintenance Calories for a sedentary 106kg man', function () {
-    const activityLevels: Array<activityLevel> = [
+    const activityLevels: Array<ActivityLevel> = [
       'sedentary',
       'low',
       'moderate',
@@ -32,7 +32,7 @@ describe('TMBCalculator', function () {
   });
 
   it('Calculates the Total Maintenance Calories for a sedentary 80kg man', function () {
-    const activityLevels: Array<activityLevel> = [
+    const activityLevels: Array<ActivityLevel> = [
       'sedentary',
       'low',
       'moderate',
@@ -55,7 +55,7 @@ describe('TMBCalculator', function () {
   });
 
   it('Calculates the Total Maintenance Calories for a sedentary 71kg woman', function () {
-    const activityLevels: Array<activityLevel> = [
+    const activityLevels: Array<ActivityLevel> = [
       'sedentary',
       'low',
       'moderate',

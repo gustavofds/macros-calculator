@@ -36,7 +36,7 @@ export default class TMBCalculator {
   }
 }
 
-export type activityLevel =
+export type ActivityLevel =
   | 'sedentary'
   | 'low'
   | 'moderate'
