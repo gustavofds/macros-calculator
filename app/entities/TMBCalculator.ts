@@ -34,13 +34,6 @@ export default class TMBCalculator {
   }
 }
 
-type personData = {
-  age: number;
-  sex: 'male' | 'female';
-  heightInCm: number;
-  weightInKg: number;
-};
-
 export type activityLevel =
   | 'sedentary'
   | 'low'
