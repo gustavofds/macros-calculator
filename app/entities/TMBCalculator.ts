@@ -1,3 +1,5 @@
+import Person from './Person';
+
 export default class TMBCalculator {
   static sexAdder = {
     male: 5,
@@ -12,21 +14,22 @@ export default class TMBCalculator {
     athlete: 1.9,
   };
 
-  static calculate(personData: personData): number {
+  static calculate(person: Person): number {
     const tmb =
-      10 * personData.weightInKg +
-      6.25 * personData.heightInCm -
-      5 * personData.age +
-      this.sexAdder[personData.sex];
+      10 * person.getWeightInKg() +
+      6.25 * person.getHeightInCm() -
+      5 * person.getAge() +
+      this.sexAdder[person.getSex()];
     return Math.round(tmb);
   }
 
-  static calculateMaintenance(
-    personData: personData,
-    activityLevel: activityLevel
-  ) {
+  static calculateMaintenance(person: Person) {
+    const personActivity = person.getActivityLevel();
+    if (personActivity === null) {
+      throw new Error('Please set the activity level');
+    }
     return Math.round(
-      this.calculate(personData) * this.activityMultiplicator[activityLevel]
+      this.calculate(person) * this.activityMultiplicator[personActivity]
     );
   }
 }
