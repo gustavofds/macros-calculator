@@ -2,13 +2,13 @@ import { activityLevel } from './TMBCalculator';
 
 export default class Person {
   activityLevel?: activityLevel;
+  tmb?: number;
 
   constructor(
     readonly age: number,
     readonly sex: sex,
     readonly heightInCm: number,
-    readonly weightInKg: number,
-    activityLevel?: activityLevel
+    readonly weightInKg: number
   ) {
     if (age < 0 || heightInCm < 0 || weightInKg < 0) {
       throw new Error('Invalid data.');
@@ -50,6 +50,18 @@ export default class Person {
   getActivityLevel(): activityLevel | null {
     if (this.activityLevel) {
       return this.activityLevel;
+    } else {
+      return null;
+    }
+  }
+
+  setTmb(tmb: number): void {
+    this.tmb = tmb;
+  }
+
+  getTmb(): number | null {
+    if (this.tmb) {
+      return this.tmb;
     } else {
       return null;
     }
