@@ -5,6 +5,7 @@ import TDEEService from '../services/TDEEService';
 import { Sex } from '../entities/Person';
 import { activityLevels } from '../helpers/enumHelper';
 import Alert from './Alert';
+import TMBResults from './TMBResults';
 
 export default function MacrosCalcForm() {
   const [age, setAge] = useState('');
@@ -163,16 +164,7 @@ export default function MacrosCalcForm() {
           </div>
         </section>
       )}
-      {gotResults && (
-        <div>
-          <h2>Here are your results</h2>
-          {['tmb', ...activityLevels].map((activityLevel, index) => (
-            <li key={index}>
-              {activityLevel}: {results[activityLevel]}
-            </li>
-          ))}
-        </div>
-      )}
+      {gotResults && <TMBResults results={results} />}
     </>
   );
 }

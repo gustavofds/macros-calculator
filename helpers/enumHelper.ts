@@ -7,3 +7,12 @@ export const activityLevels: Array<ActivityLevel> = [
   'heavy',
   'athlete',
 ];
+
+export const activityLevelsMap: Array<String> = [
+  'Taxa Metabólica Basal',
+  'Sedentário',
+  'Exercício Leve',
+  'Exercício Moderado',
+  'Exercício Intenso',
+  'Atleta',
+];
