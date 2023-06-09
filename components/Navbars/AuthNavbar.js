@@ -6,6 +6,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 // components
 
 export default function Navbar(props) {
+  const [navbarOpen, setNavbarOpen] = React.useState(false);
+
   return (
     <>
       <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
@@ -22,13 +24,15 @@ export default function Navbar(props) {
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
+              onClick={() => setNavbarOpen(!navbarOpen)}
             >
               <i className="text-white fas fa-bars"></i>
             </button>
           </div>
           <div
             className={
-              'lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none'
+              'lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none' +
+              (navbarOpen ? ' block rounded shadow-lg' : ' hidden')
             }
             id="example-navbar-warning"
           >
@@ -40,7 +44,7 @@ export default function Navbar(props) {
                   target="_blank"
                 >
                   <i className="lg:text-blueGray-200 text-blueGray-400 fab fa-linkedin text-lg leading-lg " />
-                  <span className="lg:hidden inline-block ml-2">Tweet</span>
+                  <span className="lg:hidden inline-block ml-2">LinkedIn</span>
                 </a>
               </li>
 
@@ -51,7 +55,7 @@ export default function Navbar(props) {
                   target="_blank"
                 >
                   <i className="lg:text-blueGray-200 text-blueGray-400 fab fa-github text-lg leading-lg " />
-                  <span className="lg:hidden inline-block ml-2">Star</span>
+                  <span className="lg:hidden inline-block ml-2">GitHub</span>
                 </a>
               </li>
 
