@@ -5,8 +5,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Calculadora de Macros - Dieta Flexível',
-  description: 'Calcule os macros para sua Dieta Flexível com base nas mais modernas técnicas nutricionais. Saiba exatamente quantas Proteínas, Carboidratos e Gordura você precisa para um processo de emagrecimento saudável.',
-}
+  description:
+    'Calcule seu gasto energético e sua Taxa Metabólica Basal (TMB). Planeje os macros para sua Dieta Flexível com base nas mais modernas técnicas nutricionais. Saiba exatamente quantas Proteínas, Carboidratos e Gordura você precisa para um processo de emagrecimento saudável.',
+};
 
 export default function RootLayout({
   children,

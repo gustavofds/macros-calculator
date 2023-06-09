@@ -1,4 +1,4 @@
-import TDEEService from '@/app/services/TDEEService';
+import TDEEService from '@/services/TDEEService';
 
 describe('TDEEService', () => {
   describe('getTMB', () => {

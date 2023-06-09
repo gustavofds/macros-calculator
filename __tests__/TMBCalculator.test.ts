@@ -1,5 +1,5 @@
-import TMBCalculator, { ActivityLevel } from '../app/entities/TMBCalculator';
-import Person from '../app/entities/Person';
+import TMBCalculator, { ActivityLevel } from '../entities/TMBCalculator';
+import Person from '../entities/Person';
 
 describe('TMBCalculator', function () {
   it('Calculates the TMB for a 106kg man', function () {
