@@ -28,13 +28,15 @@ export default class TMBCalculator {
     if (personActivity === null) {
       throw new Error('Please set the activity level');
     }
-    return Math.round(
-      this.calculate(person) * this.activityMultiplicator[personActivity]
-    );
+    let tmb = person.getTmb();
+    if (!tmb) {
+      tmb = this.calculate(person);
+    }
+    return Math.round(tmb * this.activityMultiplicator[personActivity]);
   }
 }
 
-export type activityLevel =
+export type ActivityLevel =
   | 'sedentary'
   | 'low'
   | 'moderate'

@@ -1,14 +1,14 @@
-import { activityLevel } from './TMBCalculator';
+import { ActivityLevel } from './TMBCalculator';
 
 export default class Person {
-  activityLevel?: activityLevel;
+  activityLevel?: ActivityLevel;
+  tmb?: number;
 
   constructor(
     readonly age: number,
-    readonly sex: sex,
+    readonly sex: Sex,
     readonly heightInCm: number,
-    readonly weightInKg: number,
-    activityLevel?: activityLevel
+    readonly weightInKg: number
   ) {
     if (age < 0 || heightInCm < 0 || weightInKg < 0) {
       throw new Error('Invalid data.');
@@ -22,7 +22,7 @@ export default class Person {
     return this.age;
   }
 
-  getSex(): sex {
+  getSex(): Sex {
     return this.sex;
   }
 
@@ -34,7 +34,7 @@ export default class Person {
     return this.weightInKg;
   }
 
-  setActivityLevel(activityLevel: activityLevel): void {
+  setActivityLevel(activityLevel: ActivityLevel): void {
     if (
       activityLevel !== 'sedentary' &&
       activityLevel !== 'low' &&
@@ -47,13 +47,25 @@ export default class Person {
     this.activityLevel = activityLevel;
   }
 
-  getActivityLevel(): activityLevel | null {
+  getActivityLevel(): ActivityLevel | null {
     if (this.activityLevel) {
       return this.activityLevel;
     } else {
       return null;
     }
   }
+
+  setTmb(tmb: number): void {
+    this.tmb = tmb;
+  }
+
+  getTmb(): number | null {
+    if (this.tmb) {
+      return this.tmb;
+    } else {
+      return null;
+    }
+  }
 }
 
-type sex = 'male' | 'female';
+export type Sex = 'male' | 'female';
