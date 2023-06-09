@@ -10,6 +10,17 @@ export default class Person {
     readonly heightInCm: number,
     readonly weightInKg: number
   ) {
+    console.log(age);
+    if (
+      typeof age !== 'number' ||
+      typeof heightInCm !== 'number' ||
+      typeof weightInKg !== 'number' ||
+      isNaN(age) ||
+      isNaN(heightInCm) ||
+      isNaN(weightInKg)
+    ) {
+      throw new Error('Invalid data.');
+    }
     if (age < 0 || heightInCm < 0 || weightInKg < 0) {
       throw new Error('Invalid data.');
     }

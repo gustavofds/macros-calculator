@@ -4,6 +4,7 @@ import { useState } from 'react';
 import TDEEService from '../services/TDEEService';
 import { Sex } from '../entities/Person';
 import { activityLevels } from '../helpers/enumHelper';
+import Alert from './Alert';
 
 export default function MacrosCalcForm() {
   const [age, setAge] = useState('');
@@ -11,19 +12,27 @@ export default function MacrosCalcForm() {
   const [weight, setWeight] = useState('');
   const [sex, setSex] = useState<Sex>('male');
   const [gotResults, setGotResults] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [results, setResults] = useState({});
 
   const handleSubmit = (ev: any) => {
     ev.preventDefault();
     const tdeeService = new TDEEService();
-    const result = tdeeService.getAll({
-      age: Number(age),
-      sex,
-      heightInCm: Number(height),
-      weightInKg: Number(weight),
-    });
-    setResults(result);
-    setGotResults(true);
+    try {
+      const result = tdeeService.getAll({
+        age: Number(age),
+        sex,
+        heightInCm: Number(height),
+        weightInKg: Number(weight),
+      });
+
+      setResults(result);
+      setGotResults(true);
+    } catch (err: any) {
+      console.log(err.message);
+      setIsError(true);
+      return;
+    }
   };
 
   return (
@@ -133,6 +142,10 @@ export default function MacrosCalcForm() {
                         </div>
                       </fieldset>
                     </div>
+
+                    {isError && (
+                      <Alert isError={isError} setIsError={setIsError} />
+                    )}
 
                     <div className="text-center mt-6">
                       <button
