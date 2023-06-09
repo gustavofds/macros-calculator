@@ -12,9 +12,8 @@ export default function MacrosCalcForm() {
   const [sex, setSex] = useState<Sex>('male');
   const [gotResults, setGotResults] = useState(false);
   const [results, setResults] = useState({});
-  console.log('SEXO', sex);
 
-  const handleSubmit = (ev) => {
+  const handleSubmit = (ev: any) => {
     ev.preventDefault();
     const tdeeService = new TDEEService();
     const result = tdeeService.getAll({
@@ -109,12 +108,8 @@ export default function MacrosCalcForm() {
                           name="sex"
                           type="radio"
                           className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                          // onChange={(ev) => setSex(ev.target.value)}
                           value="male"
-                          onChange={(ev) => {
-                            console.log(ev);
-                            setSex(ev.target.value);
-                          }}
+                          onChange={(ev) => setSex(ev.target.value as Sex)}
                           checked={sex === 'male'}
                         />
                         <label
@@ -130,11 +125,7 @@ export default function MacrosCalcForm() {
                           name="sex"
                           type="radio"
                           className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                          onChange={(ev) => {
-                            console.log(ev);
-                            setSex(ev.target.value);
-                          }}
-                          // onChange={(ev) => setSex(ev.target.value)}
+                          onChange={(ev) => setSex(ev.target.value as Sex)}
                           value="female"
                           checked={sex === 'female'}
                         />
