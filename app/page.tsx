@@ -30,7 +30,7 @@ export default function Home() {
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-5xl">
-                    Seu emagrecimento começa conosco.
+                    Calcule seu gasto calórico e macros.
                   </h1>
                   <p className="mt-4 text-lg text-blueGray-200">
                     Saiba seu Gasto Calórico Diário para um emagrecimento

@@ -5,7 +5,7 @@ export default function TMBResults({ results }: any) {
     <section className="pb-20 bg-blueGray-200 -mt-24">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
-          <div className="w-full lg:w-6/12 px-4">
+          <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200">
               <div className="flex-auto p-5 lg:p-10">
                 <h2>
