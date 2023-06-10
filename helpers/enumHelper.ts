@@ -16,3 +16,19 @@ export const activityLevelsMap: Array<String> = [
   'Exercício Intenso',
   'Atleta',
 ];
+
+
+export const DAILY_CALORIC_DEFICIT_FOR_GOAL = {
+  fastLoss: -800,
+  loss: -500,
+  slowLoss: -200,
+  maintain: 0,
+};
+
+export type Goal = 'fastLoss' | 'loss' | 'slowLoss' | 'maintain';
+
+export const CALORIES_PER_GRAM_OF_NUTRIENT = {
+  protein: 4,
+  carbs: 4,
+  fats: 9,
+};
