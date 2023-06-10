@@ -14,21 +14,25 @@ export default function MacrosCalcForm() {
   const [gotResults, setGotResults] = useState(false);
   const [isError, setIsError] = useState(false);
   const [results, setResults] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const [ableToScroll, setAbleToScroll] = useState(false);
 
-  const resultRef = useRef();
+  const resultRef = useRef(null);
 
   useEffect(() => {
-    if (resultRef.current) {
+    if (resultRef.current && ableToScroll) {
       resultRef.current.scrollIntoView({
         behavior: 'smooth',
         inline: 'center',
       });
     }
+
+    setAbleToScroll(false);
   }, [ableToScroll]);
 
   const handleSubmit = (ev: any) => {
     ev.preventDefault();
+    setIsLoading(true);
     const tdeeService = new TDEEService();
     try {
       const result = tdeeService.getAll({
@@ -39,22 +43,27 @@ export default function MacrosCalcForm() {
       });
 
       setResults(result);
-      setGotResults(true);
+      if (gotResults) {
+        setAbleToScroll(true);
+      } else {
+        setGotResults(true);
+      }
+      setIsLoading(false);
     } catch (err: any) {
       console.log(err.message);
       setIsError(true);
-      return;
+      setIsLoading(false);
     }
   };
 
   return (
     <>
-      <section className="pb-20 bg-blueGray-200 -mt-24">
+      <section className="pb-20 bg-blueGray-200  mt-10 md:-mt-24">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
             <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
               <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200">
-                <div className="flex-auto p-5 lg:p-10">
+                <form className="flex-auto p-5 lg:p-10" onSubmit={handleSubmit}>
                   <p className="leading-relaxed mt-1 mb-4 text-blueGray-500">
                     Informe seus dados que calcularemos seu gasto energético e
                     macros ideais num instante.
@@ -67,7 +76,7 @@ export default function MacrosCalcForm() {
                       Idade
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Idade"
                       value={age}
@@ -83,7 +92,7 @@ export default function MacrosCalcForm() {
                       Altura (em centímetros)
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="cm"
                       value={height}
@@ -99,7 +108,7 @@ export default function MacrosCalcForm() {
                       Peso (em quilogramas)
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Kg"
                       value={weight}
@@ -160,13 +169,12 @@ export default function MacrosCalcForm() {
                   <div className="text-center mt-6">
                     <button
                       className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                      type="button"
-                      onClick={handleSubmit}
+                      type="submit"
                     >
-                      Calcular
+                      {!isLoading ? 'Calcular' : 'Carregando...'}
                     </button>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>

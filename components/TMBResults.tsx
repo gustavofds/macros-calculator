@@ -7,7 +7,7 @@ export default forwardRef(function TMBResults(
 ) {
   useEffect(() => {
     setAbleToScroll(true);
-  });
+  }, []); // eslint-disable-line
 
   return (
     <section className="pb-16 bg-blueGray-200 relative pt-32">
