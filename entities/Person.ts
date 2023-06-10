@@ -10,7 +10,6 @@ export default class Person {
     readonly heightInCm: number,
     readonly weightInKg: number
   ) {
-    console.log(age);
     if (
       typeof age !== 'number' ||
       typeof heightInCm !== 'number' ||
