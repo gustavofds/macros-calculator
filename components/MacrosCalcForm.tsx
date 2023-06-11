@@ -184,6 +184,7 @@ export default function MacrosCalcForm() {
       {gotResults && (
         <TMBResults
           results={results}
+          weightInKg={weight}
           setAbleToScroll={setAbleToScroll}
           ref={resultRef}
         />
