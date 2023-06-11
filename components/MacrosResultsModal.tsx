@@ -31,14 +31,14 @@ export default function MacrosResultsModal({
             </div>
             {/*body*/}
             <div className="relative p-6 flex-auto">
-              <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+              <p className="my-4 text-blueGray-500 text-sm md:text-lg leading-relaxed">
                 Seu nível de atividade é:{' '}
                 <strong>{activityDict[activity]}</strong>
               </p>
-              <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+              <p className="my-4 text-blueGray-500 text-sm md:text-lg leading-relaxed">
                 Você quer: <strong>{goalDictVerb[goal]}</strong>
               </p>
-              <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+              <p className="my-4 text-blueGray-500 text-sm md:text-lg leading-relaxed">
                 Consumo calórico máximo sugerido:{' '}
                 <strong>{macrosResults.maxCalories} calorias por dia</strong>,
                 divididos em:
@@ -57,6 +57,28 @@ export default function MacrosResultsModal({
                   </li>
                 </ul>
               </p>
+              <p className="my-4 text-blueGray-500 text-sm md:text-lg leading-relaxed">
+                Precisando de receitas que encaixem nos seus Macros? No livro{' '}
+                <a href="https://go.hotmart.com/W83717848K" target="_blank">
+                  <button
+                    className="bg-blueGray-600 text-white  font-bold uppercase text-xs px-4 py-2 rounded shadow hover:bg-blueGray-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                  >
+                    <i className="fas fa-book"></i> Fitness Flexível
+                  </button>{' '}
+                </a>{' '}
+                você vai encontrar receitas doces, salgadas, lanches rápidos e
+                alguns pratos mais elaborados. Tudo muito simples e fácil de
+                entender, mesmo quem nunca se aventurou na cozinha vai conseguir
+                fazer pratos deliciosos e comer bem atingindo os objetivos!
+              </p>
+              <p className="my-4 text-blueGray-500 text-sm md:text-lg leading-relaxed">
+                Todas as receitas contam com a informação nutricional do prato
+                todo ou das porções. Além disso, todas as receitas vêm com um
+                código de barras para você escanear utilizando o app de contagem
+                de calorias <strong>MyFitness Pal</strong> e adicionar ao seu
+                cardápio diário com um simples clique.
+              </p>
             </div>
             {/*footer*/}
             <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
@@ -67,13 +89,14 @@ export default function MacrosResultsModal({
               >
                 Fechar
               </button>
-              {/* <button
+              <button
                 className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                 type="button"
-                onClick={() => setShowModal(false)}
               >
-                Save Changes
-              </button> */}
+                <a href="https://go.hotmart.com/W83717848K" target="_blank">
+                  Conhecer o Livro
+                </a>
+              </button>
             </div>
           </div>
         </div>

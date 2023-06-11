@@ -37,7 +37,7 @@ export default function Navbar(props) {
             id="example-navbar-warning"
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <li className="flex items-center">
+              {/* <li className="flex items-center">
                 <a
                   className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                   href="https://linkedin.com/in/gustavosousa1"
@@ -46,7 +46,7 @@ export default function Navbar(props) {
                   <i className="lg:text-blueGray-200 text-blueGray-400 fab fa-linkedin text-lg leading-lg " />
                   <span className="lg:hidden inline-block ml-2">LinkedIn</span>
                 </a>
-              </li>
+              </li> */}
 
               <li className="flex items-center">
                 <a
@@ -60,12 +60,14 @@ export default function Navbar(props) {
               </li>
 
               <li className="flex items-center">
-                <button
-                  className="bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
-                  type="button"
-                >
-                  <i className="fas fa-arrow-circle-up"></i> Cadastre-se
-                </button>
+                <a href="https://go.hotmart.com/W83717848K" target="_blank">
+                  <button
+                    className="bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                    type="button"
+                  >
+                    <i className="fas fa-book"></i> Livro Fitness Flexível{' '}
+                  </button>
+                </a>
               </li>
             </ul>
           </div>
