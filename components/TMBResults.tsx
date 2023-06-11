@@ -1,20 +1,33 @@
-import { activityLevels, activityLevelsMap } from '@/helpers/enumHelper';
+import { Goal, activityLevels, activityLevelsMap } from '@/helpers/enumHelper';
 import { forwardRef, useEffect, useState } from 'react';
+import MacrosResultsModal from './MacrosResultsModal';
+import MacrosService from '@/services/MacrosService';
 
 export default forwardRef(function TMBResults(
-  { results, setAbleToScroll }: any,
+  { results, setAbleToScroll, weightInKg }: any,
   ref: any
 ) {
   const [activitySelect, setActivitySelect] = useState('sedentary');
   const [goalSelect, setGoalSelect] = useState('fastLoss');
+  const [showModal, setShowModal] = useState(false);
+  const [macrosResults, setMacrosResults] = useState({});
 
   useEffect(() => {
     setAbleToScroll(true);
   }, []); // eslint-disable-line
 
   function handleClick() {
+    const macrosService = new MacrosService();
+    const data = macrosService.getMacros({
+      weightInKg,
+      goal: goalSelect as Goal,
+      dailyExpenditure: results[activitySelect],
+    });
+    setMacrosResults(data);
+    setShowModal(true);
     console.log('Seu nivel de atividade e:', activitySelect);
     console.log('Seu objetivo e:', goalSelect);
+    console.log(data);
   }
 
   return (
@@ -101,6 +114,14 @@ export default forwardRef(function TMBResults(
                 <i className="fas fa-calculator text-lg mr-1"></i>
                 <span>Calcular Macros</span>
               </button>
+              {showModal ? (
+                <MacrosResultsModal
+                  setShowModal={setShowModal}
+                  activity={activitySelect}
+                  goal={goalSelect}
+                  macrosResults={macrosResults}
+                />
+              ) : null}
             </div>
             <div className="text-center mt-16"></div>
           </div>
